@@ -16,14 +16,14 @@ class CreateUsers extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id('id');
             $table->string('cpf')->unique();
-            $table->string('name')->nullable();;
+            $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('locador')->nullable()->default(false);
-            $table->string('password')->nullable();
+            $table->string('phone');
+            $table->timestamp('email_verified_at');
+            $table->boolean('locador')->default(false);
+            $table->string('password');
             $table->foreignId('endereco_id')->references('id')->on('enderecos');
-            $table->date('data_nascimento')->nullable();
+            $table->date('data_nascimento');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -14,7 +14,10 @@ class PagamentoController extends Controller
      */
     public function index()
     {
-        //
+        
+        $pagamentos = Pagamento::all();
+
+        return response()->json($pagamentos);
     }
 
     /**
@@ -34,8 +37,14 @@ class PagamentoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {      
+        $pagamento = new Pagamento;
+        $pagamento->id_aluguel = $request->id_aluguel;
+        $pagamento->data_vencimento = $request->data_vencimento;
+        //falta outros dados
+        $pagamento->save();
+
+        return response()->json($pagamento);
     }
 
     /**
@@ -46,7 +55,7 @@ class PagamentoController extends Controller
      */
     public function show(Pagamento $pagamento)
     {
-        //
+        return response()->json($pagamento);
     }
 
     /**
@@ -69,7 +78,7 @@ class PagamentoController extends Controller
      */
     public function update(Request $request, Pagamento $pagamento)
     {
-        //
+        //não sei qquais ainda
     }
 
     /**
@@ -80,6 +89,8 @@ class PagamentoController extends Controller
      */
     public function destroy(Pagamento $pagamento)
     {
-        //
+        $idalu = $pagamento->id_aluguel;
+        $pagamento->delete();
+        return response()->json($idalu);
     }
 }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\User;
+use App\Models\Endereco;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,9 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $imoveis = Users::all();
+        //get sem parametro
+        $users = User::all();
 
-        return response()->json($imoveis);
+        return response()->json($users);
     }
 
     /**
@@ -26,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -37,7 +39,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //post
+        $endereco_user = new Endereco;
+        $endereco_user->uf = $request->uf;
+        $endereco_user->cidade = $request->cidade;
+        $endereco_user->bairro = $request->bairro;
+        $endereco_user->cep = $request->cep;
+        $endereco_user->rua = $request->rua;
+        $endereco_user->numero = $request->numero;
+        $endereco_user->complemento = $request->complemento;
+
+        $endereco_user->save();
+        $user = new User;
+        $user->cpf = $request->cpf;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password= $request->password;
+        $user->data_nascimento = $request->data_nascimento;
+        $user->phone = $request->phone;
+        $user->endereco_id = $endereco_user->id;
+        $user->save();
+        return response()->json($user, 200);
     }
 
     /**
@@ -46,9 +68,10 @@ class UserController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show(User $users)
     {
-        //
+        //get com parametro
+        return response()->json($users, 200);
     }
 
     /**
@@ -69,9 +92,10 @@ class UserController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $request, User $users)
     {
-        //
+        //falta saber quais atributos são
+        //put ***********
     }
 
     /**
@@ -80,8 +104,11 @@ class UserController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy(User $users)
     {
-        //
+        //delete
+        $cpf = $users->cpf;
+        $users->delete();
+        return response()->json($cpf, 200);
     }
 }
