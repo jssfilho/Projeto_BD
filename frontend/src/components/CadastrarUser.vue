@@ -4,7 +4,7 @@
         <form method="post" >
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" name="tnome" id="name" size="15" maxlength="50" placeholder="Nome" required/>
+                <input type="text" class="form-control" name="tnome" id="name" size="15" maxlength="50" required/>
             </div>
             
             <div class="form-group">
@@ -18,49 +18,49 @@
             </div>
             <div class="form-group">
                 <label for="email" class="control-label">Email:</label>
-                <input type="email" class="form-control" name="temail" id="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+                <input type="email" class="form-control" name="temail" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
             </div>
             
             <div class="form-group">
                 <label for="numero" class="control-label">Telefone de Contado:</label>
-                <input type="tel" pattern="[0-9]{2}[0-9]{4,6}[0-9]{3,4}$" class="form-control" name="tnumero" id="numero" placeholder="Telefone" required/>
+                <input type="text" pattern="[0-9]{2}[0-9]{4,6}[0-9]{3,4}$" class="form-control" name="tnumero" id="phone" required/>
             </div>
             
             <div class="row">
                 <div class="form-group col">
                     <label for="email" class="control-label">Cidade:</label>
-                    <input type="text" class="form-control" name="tcidade" id="city" placeholder="Cidade" required/>
+                    <input type="text" class="form-control" name="tcidade" id="cidade"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="email" class="control-label">UF:</label>
-                    <input type="text" class="form-control" maxlength="11" id="uf" placeholder="UF" size="2" required/>
+                    <input type="text" class="form-control" maxlength="11" id="uf"  size="2" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="numero" class="control-label">CEP:</label>
-                    <input type="text" class="form-control" name="tcep" id="phone" placeholder="CEP" required/>
+                    <input type="text" class="form-control" name="tcep" id="numero"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="email" class="control-label">Bairro:</label>
-                    <input type="text" class="form-control" name="tbairro" id="tbairro" placeholder="Bairro" required/>
+                    <input type="text" class="form-control" name="tbairro" id="bairro"  required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="email" class="control-label">Rua:</label>
-                    <input type="text" class="form-control" name="trua" id="trua" placeholder="Rua" required/>
+                    <input type="text" class="form-control" name="trua" id="rua"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="number" class="control-label">Numero:</label>
-                    <input type="tel" class="form-control" name="tnum" id="tnum" placeholder="Numero" required/>
+                    <input type="tel" class="form-control" name="tnum" id="numero"  required/>
                 </div>
             </div>
             
             
             <div class="form-group">
                 <label for="pwd" class="control-label">Senha:</label>
-                <input type="password" pattern="(?=.*[0-9a-zA-Z]).{4,}" class="form-control" id="pwd" name="tsenha" size="8" maxlength="8" placeholder="Senha" required/>
+                <input type="password" pattern="(?=.*[0-9a-zA-Z]).{4,}" class="form-control" id="password" name="tsenha" size="8" maxlength="8" placeholder="Senha" required/>
             </div>
             <div class="form-group">
                 <label for="pwd" class="control-label">Confirmar Senha:</label>
