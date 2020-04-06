@@ -1,6 +1,7 @@
 <template>
     <div id="container" class="col-md-4">
         <h3>Cadastro de Imovel</h3>
+        <a href="#/profile">Voltar a Home</a>
         <form  method="post">
         
         <div class="row col-xs-4">

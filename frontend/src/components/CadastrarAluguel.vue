@@ -1,6 +1,7 @@
 <template>
   <div id="container" class="col-md-4">
       <h3>Cadastro de Aluguel</h3>
+      <a href="#/profile">Voltar a Home</a>
     <form method="post">
       <div class="form-group col-xs-4">
           <label class="form-control-label">Data de Termino do contrato:</label>

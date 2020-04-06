@@ -1,6 +1,7 @@
 <template>
      <div id="container" class="col-md-4">
         <h3>Cadastro de Usuario</h3>
+        <a href="#/login">Voltar ao Login</a> 
         <form method="post" >
             <div class="form-group">
                 <label for="nome">Nome:</label>
@@ -56,7 +57,10 @@
                     <input type="tel" class="form-control" name="tnum" id="numero"  required/>
                 </div>
             </div>
-            
+            <div class="form-group">
+                <label for="nome">Complemento:</label>
+                <input type="text" class="form-control" name="tnome" id="complemento" size="15" maxlength="100" required/>
+            </div>
             
             <div class="form-group">
                 <label for="pwd" class="control-label">Senha:</label>
@@ -72,7 +76,10 @@
                     <input type="checkbox" name="remember_me" id="remember_me" value="1" class="" tabindex="3" /> Aceito os Termos
                 </label>
             </div>
-            <button type="submit" id="submit" class="btn btn-primary">Cadastrar</button>
+            
+            <div class="form-group col-xs-4">				
+                <button type="submit" id="submit" class="btn btn-primary">Cadastrar</button>   
+            </div>
         </form>
 
     </div>
@@ -81,9 +88,7 @@
 <script>
 export default {
   name: 'CadastrarUser',
-  props: {
-    msg: String
-  }
+
 }
 </script>
 

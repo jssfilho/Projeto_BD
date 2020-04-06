@@ -1,18 +1,15 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <CadastrarAluguel />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import CadastrarAluguel from './components/CadastrarAluguel.vue'
+
 
 export default {
-  name: 'App',
-  components: {
-    CadastrarAluguel
-  }
+  name: 'App'
 }
 </script>
 

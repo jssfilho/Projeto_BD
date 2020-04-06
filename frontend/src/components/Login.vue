@@ -16,15 +16,20 @@
                 <input type="password" class="form-control" name="password" id="password" placeholder="Senha" value="" tabindex="2" />
             </div>
             
+            
+            
+            <div class="form-group col-xs-4">				
+                <div class="row">
+                    <a class="col" href="#/cadastro">Não possui cadastro?</a>
+                    <a class="col" href="#/recuperarSenha">Esqueceu a senha?</a> 
+                </div>
+                <button type="submit" id="submit" tabindex="5" class="btn btn-primary row">Entrar</button>
+            </div>
+
             <div class="form-group col-xs-4">
                 <label class="form-check-label" for="remember_me">
                     <input type="checkbox" id="remember_me" value="1" class="form-check-input" tabindex="3" /> Lembrar de mim
                 </label>
-            </div>
-            
-            <div class="form-group col-xs-4">				
-                <button type="submit" id="submit" tabindex="5" class="btn btn-primary">Entrar</button>
-                <a href="recuPass.html">Esqueceu a senha?</a>
             </div>
         </form>			
 		

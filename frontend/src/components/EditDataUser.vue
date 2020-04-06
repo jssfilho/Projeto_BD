@@ -3,7 +3,7 @@
              
     
 		<h2>Editar Dados</h2>
-                        
+        <a href="#/profile">Voltar a Home</a>
         <form method="post">
             <div class="form-group col-xs-4">
                 <label for="login" class="form-control-label">----:</label>
@@ -24,6 +24,7 @@
                 <button type="submit" id="submit" tabindex="5" class="btn btn-primary">Entrar</button>
             </div>
         </form>
+  </div>
 </template>
 
 <script>
