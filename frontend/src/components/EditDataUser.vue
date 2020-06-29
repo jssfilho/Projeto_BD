@@ -6,17 +6,17 @@
         <a href="#/profile">Voltar a Home</a>
         <form method="post">
             <div class="form-group col-xs-4">
-                <label for="login" class="form-control-label">----:</label>
-                <input type="email" class="form-control" name="login" id="login_value" placeholder="Email" tabindex="1" value="" />
+                <label for="login" class="form-control-label">Novo Email:</label>
+                <input v-model="user.email" type="email" class="form-control" name="login" id="login_value" placeholder="Email" tabindex="1" value="" />
             </div>
             
             <div class="form-group col-xs-4">
-                <label for="password" class="form-control-label">----:</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Senha" value="" tabindex="2" />
+                <label for="password" class="form-control-label">Nova Senha:</label>
+                <input v-model="user.password" type="password" class="form-control" name="password" id="password" placeholder="Senha" value="" tabindex="2" />
             </div>
             
             <div class="form-group col-xs-4">
-                <label for="password" class="form-control-label">----:</label>
+                <label for="password" class="form-control-label">Confime Nova Senha:</label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="Senha" value="" tabindex="2" />
             </div>
             
@@ -30,13 +30,11 @@
 <script>
 export default {
   name: 'EditDataUser',
-  props: {
-    msg: String
-  }
+
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
   #container {
         width: 100%;

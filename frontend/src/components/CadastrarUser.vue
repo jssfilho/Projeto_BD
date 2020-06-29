@@ -2,69 +2,69 @@
      <div id="container" class="col-md-4">
         <h3>Cadastro de Usuario</h3>
         <a href="#/login">Voltar ao Login</a> 
-        <form method="post" >
+        <form @submit.prevent="salvar" >
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" name="tnome" id="name" size="15" maxlength="50" required/>
+                <input v-model="user.name" type="text" class="form-control" name="tnome" id="name" size="15" maxlength="50" required/>
             </div>
             
             <div class="form-group">
                 <label for="data">Data de Nascimento:</label>
-                <input type="date" class="form-control" name="tdata" id="data_nascimento" size="6" maxlength="6" required/>
+                <input v-model="user.date" type="date" class="form-control" name="tdata" id="data_nascimento" size="6" maxlength="6" required/>
             </div>
             
             <div class="form-group">
                 <label for="cpf">CPF:</label>
-                <input type="number" class="form-control" name="tcpf" id="cpf" size="11" maxlength="11" placeholder="CPF" required/>
+                <input  v-model="user.cpf" type="text" class="form-control" name="tcpf" id="cpf" size="11" maxlength="11" placeholder="CPF" required/>
             </div>
             <div class="form-group">
                 <label for="email" class="control-label">Email:</label>
-                <input type="email" class="form-control" name="temail" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+                <input v-model="user.email" type="email" class="form-control" name="temail" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
             </div>
             
             <div class="form-group">
                 <label for="numero" class="control-label">Telefone de Contado:</label>
-                <input type="text" pattern="[0-9]{2}[0-9]{4,6}[0-9]{3,4}$" class="form-control" name="tnumero" id="phone" required/>
+                <input v-model="user.phone" pattern="[0-9]{2}[0-9]{4,6}[0-9]{3,4}$" class="form-control" name="tnumero" id="phone" required/>
             </div>
             
             <div class="row">
                 <div class="form-group col">
                     <label for="email" class="control-label">Cidade:</label>
-                    <input type="text" class="form-control" name="tcidade" id="cidade"  required/>
+                    <input v-model="user.endereco.city" type="text" class="form-control" name="tcidade" id="cidade"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="email" class="control-label">UF:</label>
-                    <input type="text" class="form-control" maxlength="11" id="uf"  size="2" required/>
+                    <input v-model="user.endereco.uf" type="text" class="form-control" maxlength="11" id="uf"  size="2" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="numero" class="control-label">CEP:</label>
-                    <input type="text" class="form-control" name="tcep" id="numero"  required/>
+                    <input v-model="user.endereco.cep" type="text" class="form-control" name="tcep" id="numero"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="email" class="control-label">Bairro:</label>
-                    <input type="text" class="form-control" name="tbairro" id="bairro"  required/>
+                    <input v-model="user.endereco.bairro" type="text" class="form-control" name="tbairro" id="bairro"  required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="email" class="control-label">Rua:</label>
-                    <input type="text" class="form-control" name="trua" id="rua"  required/>
+                    <input v-model="user.endereco.rua" type="text" class="form-control" name="trua" id="rua"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="number" class="control-label">Numero:</label>
-                    <input type="tel" class="form-control" name="tnum" id="numero"  required/>
+                    <input v-model="user.endereco.numero" type="number" class="form-control" name="tnum" id="numero"  required/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="nome">Complemento:</label>
-                <input type="text" class="form-control" name="tnome" id="complemento" size="15" maxlength="100" required/>
+                <input v-model="user.endereco.complemento" type="text" class="form-control" name="tnome" id="complemento" size="15" maxlength="100" required/>
             </div>
             
             <div class="form-group">
                 <label for="pwd" class="control-label">Senha:</label>
-                <input type="password" pattern="(?=.*[0-9a-zA-Z]).{4,}" class="form-control" id="password" name="tsenha" size="8" maxlength="8" placeholder="Senha" required/>
+                <input v-model="user.password" type="password" pattern="(?=.*[0-9a-zA-Z]).{4,}" class="form-control" id="password" name="tsenha" size="8" maxlength="8" placeholder="Senha" required/>
             </div>
             <div class="form-group">
                 <label for="pwd" class="control-label">Confirmar Senha:</label>
@@ -86,9 +86,38 @@
 </template>
 
 <script>
+import User from '../services/users'
 export default {
   name: 'CadastrarUser',
+  data(){
+      return {
+          user: {
+              name: '',
+              email: '',
+              phone: '',
+              password: '',
+              date: '',
+              cpf: '',
+              endereco: {
+                  city: '',
+                  uf: '',
+                  cep: '',
+                  bairro: '',
+                  rua: '',
+                  numero: '',
+                  complemento: ''
+              }
+          }
+      }
+  },
 
+  methods:{
+      salvar(){
+          User.salvar(this.user).then(resposta => {
+              console.log(resposta)
+          })
+      }
+  }
 }
 </script>
 
