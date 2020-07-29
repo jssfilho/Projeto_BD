@@ -2,6 +2,7 @@
      <div id="container" class="col-md-4">
         <h3>Cadastro de Usuario</h3>
         <a href="#/login">Voltar ao Login</a> 
+        <h3>{{user.uf }}</h3>
         <form @submit.prevent="salvar" >
             <div class="form-group">
                 <label for="nome">Nome:</label>
@@ -10,7 +11,7 @@
             
             <div class="form-group">
                 <label for="data">Data de Nascimento:</label>
-                <input v-model="user.date" type="date" class="form-control" name="tdata" id="data_nascimento" size="6" maxlength="6" required/>
+                <input v-model="user.data_nascimento" type="date" class="form-control" name="tdata" id="data_nascimento" size="6" maxlength="6" required/>
             </div>
             
             <div class="form-group">
@@ -30,36 +31,36 @@
             <div class="row">
                 <div class="form-group col">
                     <label for="email" class="control-label">Cidade:</label>
-                    <input v-model="user.endereco.city" type="text" class="form-control" name="tcidade" id="cidade"  required/>
+                    <input v-model="user.cidade" type="text" class="form-control" name="tcidade" id="cidade"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="email" class="control-label">UF:</label>
-                    <input v-model="user.endereco.uf" type="text" class="form-control" maxlength="11" id="uf"  size="2" required/>
+                    <input v-model="user.uf" type="text" class="form-control" maxlength="11" id="uf"  size="2" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="numero" class="control-label">CEP:</label>
-                    <input v-model="user.endereco.cep" type="text" class="form-control" name="tcep" id="numero"  required/>
+                    <input v-model="user.cep" type="text" class="form-control" name="tcep" id="cep"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="email" class="control-label">Bairro:</label>
-                    <input v-model="user.endereco.bairro" type="text" class="form-control" name="tbairro" id="bairro"  required/>
+                    <input v-model="user.bairro" type="text" class="form-control" name="tbairro" id="bairro"  required/>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="email" class="control-label">Rua:</label>
-                    <input v-model="user.endereco.rua" type="text" class="form-control" name="trua" id="rua"  required/>
+                    <input v-model="user.rua" type="text" class="form-control" name="trua" id="rua"  required/>
                 </div>
                 <div class="form-group col">
                     <label for="number" class="control-label">Numero:</label>
-                    <input v-model="user.endereco.numero" type="number" class="form-control" name="tnum" id="numero"  required/>
+                    <input v-model="user.numero" type="number" class="form-control" name="tnum" id="numero"  required/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="nome">Complemento:</label>
-                <input v-model="user.endereco.complemento" type="text" class="form-control" name="tnome" id="complemento" size="15" maxlength="100" required/>
+                <input v-model="user.complemento" type="text" class="form-control" name="tnome" id="complemento" size="15" maxlength="100" required/>
             </div>
             
             <div class="form-group">
@@ -92,21 +93,19 @@ export default {
   data(){
       return {
           user: {
-              name: '',
-              email: '',
-              phone: '',
-              password: '',
-              date: '',
-              cpf: '',
-              endereco: {
-                  city: '',
-                  uf: '',
-                  cep: '',
-                  bairro: '',
-                  rua: '',
-                  numero: '',
-                  complemento: ''
-              }
+            name: '',
+            email: '',
+            phone: '',
+            password: '',
+            data_nascimento: '',
+            cpf: '',
+            cidade: '',
+            uf: '',
+            cep: '',
+            bairro: '',
+            rua: '',
+            numero: '',
+            complemento: ''
           }
       }
   },

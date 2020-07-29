@@ -30,6 +30,9 @@
 <script>
 export default {
   name: 'EditDataUser',
+  user: {
+      
+  }
 
 }
 </script>
